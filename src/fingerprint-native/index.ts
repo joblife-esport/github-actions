@@ -75,8 +75,8 @@ const getCurrentFP = async () => {
 
   await checkoutCommit(currentCommit)
   await exec('rm -rf node_modules')
-  await exec('yarn install')
-  await exec('yarn add bluesky-social/react-native-bottom-sheet')
+  await exec('npm ci')
+  await exec('npm install bluesky-social/react-native-bottom-sheet')
 
   const {stdout} = await getExecOutput(`npx @expo/fingerprint .`)
 
@@ -114,7 +114,7 @@ const getPrevFP = async () => {
   }
 
   await checkoutCommit(info.previousCommit)
-  await exec('yarn install')
+  await exec('npm ci')
 
   const {stdout} = await getExecOutput(`npx @expo/fingerprint .`)
 
